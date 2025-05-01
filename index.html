@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Архів Зачарованого Світу</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: #1f1035;
+      color: #e0c97f;
+      background-image: radial-gradient(circle at top center, #2a1853, #1f1035);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    header {
+      text-align: center;
+      padding: 2em 1em 1em;
+      border-bottom: 1px solid #e0c97f;
+    }
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.3em;
+    }
+    nav {
+      margin-bottom: 2em;
+    }
+    nav a {
+      margin: 0 1em;
+      color: #e0c97f;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .main-section {
+      text-align: center;
+      padding: 2em 1em;
+    }
+    .main-section h2 {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+    }
+    .main-section p {
+      font-size: 1.2em;
+      color: #dccda6;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2em;
+      padding: 2em;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #e0c97f44;
+      border-radius: 12px;
+      padding: 1.5em;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: scale(1.03);
+      border-color: #e0c97f;
+      box-shadow: 0 0 20px rgba(224, 201, 127, 0.5);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #f6e6a6;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: #2a1853;
+      padding: 2em;
+      border-radius: 10px;
+      max-width: 400px;
+      text-align: center;
+      color: #e0c97f;
+    }
+    .close-btn {
+      margin-top: 1em;
+      background: #e0c97f;
+      color: #1f1035;
+      border: none;
+      padding: 0.5em 1em;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Архів Зачарованого Світу</h1>
+    <nav>
+      <a href="#artefacts">Артефакти</a>
+      <a href="#chronicles">Хроніки</a>
+      <a href="#essences">Сутності</a>
+      <a href="#trials">Випробування</a>
+    </nav>
+  </header>
+
+  <section class="main-section">
+    <h2>Книга Знань</h2>
+    <p>Давні манускрипти та закляття</p>
+  </section>
+
+  <section class="grid">
+    <div class="card" onclick="openModal('Артефакти: Дізнайся про магічні предмети та їхню силу.')">
+      <h3>Галерея Артефактів</h3>
+      <p>Отримай мудрість зачарованих речей</p>
+    </div>
+    <div class="card" onclick="openModal('Оракул Долі: Постав питання та почуй передбачення.')">
+      <h3>Оракул Долі</h3>
+      <p>Великий Оракул чекає на твоє питання</p>
+    </div>
+    <div class="card" onclick="openModal('Ім’я Чарівника: Дізнайся своє магічне ім’я.')">
+      <h3>Ім’я Чарівника</h3>
+      <p>Дізнайся, хто ти у світі магії</p>
+    </div>
+    <div class="card" onclick="openModal('Стежка Сутностей: Познайомся з чарівними істотами.')">
+      <h3>Стежка Сутностей</h3>
+      <p>Зустрій чудернацьких і чарівних істот</p>
+    </div>
+  </section>
+
+  <div class="modal" id="modal">
+    <div class="modal-content" id="modal-content">
+      <p>Тут з’явиться інформація...</p>
+      <button class="close-btn" onclick="closeModal()">Закрити</button>
+    </div>
+  </div>
+
+  <script>
+    function openModal(text) {
+      document.getElementById('modal-content').children[0].innerText = text;
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
